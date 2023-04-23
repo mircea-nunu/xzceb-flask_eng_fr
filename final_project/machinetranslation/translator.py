@@ -30,4 +30,5 @@ def englishToFrench(englishText):
     frenchText = language_translator.translate(
     text=englishText,
     model_id='en-fr').get_result()
-    return frenchText
+    result=print(json.dumps(frenchText, indent=2))
+    return result
