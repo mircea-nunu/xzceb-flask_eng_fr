@@ -1,3 +1,6 @@
+'''
+Translator
+'''
 import json
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
@@ -29,11 +32,14 @@ def englishToFrench(englishText):
     '''
     This function transaltes English text to French
     '''
-    result = language_translator.translate(
-    text=englishText,
-    model_id='en-fr').get_result()
-    frenchText=result["translations"][0]["translation"]
-    return frenchText
+    if len(englishText.strip())==0:
+        return "No text provided"
+    else:
+        result = language_translator.translate(
+        text=englishText.strip(),
+        model_id='en-fr').get_result()
+        frenchText=result["translations"][0]["translation"]
+        return frenchText
 
 def frenchToEnglish(frenchText):
     '''
