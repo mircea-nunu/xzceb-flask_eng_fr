@@ -13,7 +13,9 @@ class TestTranslation(unittest.TestCase):
         '''
         Test englishToFrench()
         '''
-        self.assertEqual(translator.englishToFrench(''), 'No text provided') # test when input is null
-        self.assertEqual(translator.frenchToEnglish(''), 'No text provided') # test when input is null
+        self.assertEqual(translator.englishToFrench(''),
+        'No text provided') # test when input is null
+        self.assertEqual(translator.frenchToEnglish(''),
+        'No text provided') # test when input is null
 
 unittest.main()
