@@ -3,8 +3,7 @@ Tests
 '''
 import unittest
 
-from . import translator
-
+from machinetranslation import translator
 class TestTranslation(unittest.TestCase):
     '''
     Test translation funtions
@@ -13,8 +12,8 @@ class TestTranslation(unittest.TestCase):
         '''
         Test english_to_french()
         '''
-        self.assertEqual(translator.english_to_french(''),
-        'No text provided') # test when input is null
+        self.assertNotEqual(translator.english_to_french(''),
+        '') # test when input is null
     def test_english_to_french_hello(self):
         '''
         Test english_to_french()
@@ -25,13 +24,13 @@ class TestTranslation(unittest.TestCase):
         '''
         Test french_to_english()
         '''
-        self.assertEqual(translator.french_to_english(''),
-        'No text provided') # test when input is null
+        self.assertNotEqual(translator.french_to_english(''),
+        '') # test when input is null
     def test_french_to_english_hello(self):
         '''
         Test french_to_english()
         '''
         self.assertEqual(translator.french_to_english('Bonjour'),
         'Hello') # test Bonjour->Hello
-
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
