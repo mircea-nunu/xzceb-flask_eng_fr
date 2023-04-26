@@ -1,9 +1,26 @@
 '''
 Tests
 '''
+
+import sys
+import os
+ 
+# getting the name of the directory
+# where the this file is present.
+current = os.path.dirname(os.path.realpath(__file__))
+ 
+# Getting the parent directory name
+# where the current directory is present.
+parent = os.path.dirname(current)
+ 
+# adding the parent directory to
+# the sys.path.
+sys.path.append(parent)
+
 import unittest
 
-from machinetranslation import translator
+import translator
+
 class TestTranslation(unittest.TestCase):
     '''
     Test translation funtions
@@ -18,8 +35,9 @@ class TestTranslation(unittest.TestCase):
         '''
         Test english_to_french()
         '''
+        self.longMessage = True
         self.assertEqual(translator.english_to_french('Hello'),
-        'Bonjour') # test Hello->Bonjour
+        'Bonjour', 'test_english_to_french_hello') # test Hello->Bonjour
     def test_french_to_english_null(self):
         '''
         Test french_to_english()
